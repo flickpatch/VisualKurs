@@ -12,9 +12,10 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
             <TextBlock HorizontalAlignment="Center" Text="Авторизация" FontSize="18" />
             <TextBlock Text="Логин"/>
-            <TextBox Name="tbPass" Height="20"/>
+            <TextBox Name="tbLogin" Height="20"/>
             <TextBlock Text="Пароль"/>
-            <TextBox Name="tbLogin"  Height="20"/>
+            <PasswordBox Name="pbPass"  Height="20"/>
+            <TextBlock Name="tblAuthInfo" Margin="0,5" Visibility="Hidden" Text="Не корректно введены данные." Foreground="Red"/>
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Button Name="btnAuth" Click="btnRefistClick" Content="Войти" Width="90" Margin="5,0"/>
                 <Button Name="btnReg" Click="btnAuthClick" Content="Регстрация" Width="90" />
