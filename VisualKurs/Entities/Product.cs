@@ -20,5 +20,12 @@ namespace VisualKurs.Entities
         {
             photos = new List<Photo>();
         }
+        public byte[] FirstPhoto
+        {
+            get
+            {
+                return photos.First().image;
+            }
+        }
     }
 }
