@@ -1,0 +1,26 @@
+﻿<Window x:Class="VisualKurs.Windows.AddproductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisualKurs.Windows"
+        mc:Ignorable="d"
+        Title="AddproductWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+        <TextBlock Name="tblTitle"  Text="Добавление товара" FontSize="20" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Название продукта:    "/>
+                <TextBox Name="tbNmaeProduct" Text="{Binding name}" Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Описание продукта:   " Margin="0,0,1,0"/>
+                <TextBox Name="tbDescription" Text="{Binding name}" Width="300" Height="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Цена ппродукта:    " Margin="0,0,18,0"/>
+                <TextBox Name="tbPrice" Text="{Binding name}" Width="300"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

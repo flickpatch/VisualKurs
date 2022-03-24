@@ -15,6 +15,8 @@ namespace VisualKurs.Entities
         public bool isActivity { get; set; }
         public List<Photo> photos { get; set; }
         public int userId { get; set; }
+        public string type { get; set; }
+        public int price { get; set; }
         public virtual User user { get; set; }
         public Product()
         {

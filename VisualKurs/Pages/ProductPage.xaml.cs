@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VisualKurs.Actions.Requests.ProductRequests;
 
 namespace VisualKurs.Pages
 {
@@ -23,11 +24,17 @@ namespace VisualKurs.Pages
         public ProductPage()
         {
             InitializeComponent();
+            lvProducts.ItemsSource = ProductRequest.getProducts();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ClickAddProduct(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

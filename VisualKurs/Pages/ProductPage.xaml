@@ -18,7 +18,7 @@
             <TextBlock Text="Поиск"/>
             <TextBox Name="tbSearch" Width="300"/>
         </StackPanel>
-        <ListView Grid.Row="1">
+        <ListView Grid.Row="1" Name="lvProducts" VerticalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -30,7 +30,9 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Height="120" Width="100" Source="{Binding photo}"/>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding name}"/>
+                                
+                                <TextBlock Text="{Binding name}" FontSize="18"/>
+                                <TextBlock Text="{Binding description}"/>
                                 <TextBlock Text="{Binding price}"/>
                             </StackPanel>
                             <Button Name="btnInfo"/>
@@ -40,7 +42,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Добавить объявление"/>
+            <Button Content="Добавить объявление" Click="ClickAddProduct"/>
         </StackPanel>
     </Grid>
 </Page>
