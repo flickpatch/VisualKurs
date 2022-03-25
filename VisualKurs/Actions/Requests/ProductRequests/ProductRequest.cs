@@ -23,5 +23,17 @@ namespace VisualKurs.Actions.Requests.ProductRequests
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(reader.ReadToEnd());
             return products;
         }
+        public static void AddProduct(Product product)
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/" + product + "?id=" + AutorizeUser.user.id);
+            request.Method = "get";
+            request.ContentType = "application/json";
+            string json = JsonSerializer.Serialize(product);
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(json);
+            writer.Close();
+            HttpWebResponse res = request.GetResponse() as HttpWebResponse;
+            Console.WriteLine(res.StatusCode);
+        }
     }
 }

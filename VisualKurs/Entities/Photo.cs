@@ -10,7 +10,7 @@ namespace VisualKurs.Entities
     {
         public int id { get; set; }
         public int productId { get; set; }
-        public Product productroduct { get; set; }
+        public Product product { get; set; }
         public byte[] image { get; set; }
     }
 }

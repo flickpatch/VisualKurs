@@ -7,20 +7,45 @@
         mc:Ignorable="d"
         Title="AddproductWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
         <TextBlock Name="tblTitle"  Text="Добавление товара" FontSize="20" Margin="0,0,0,30" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Название продукта:    "/>
+                <TextBlock Text="Название товара:    "/>
                 <TextBox Name="tbNmaeProduct" Text="{Binding name}" Width="300"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Описание продукта:   " Margin="0,0,1,0"/>
-                <TextBox Name="tbDescription" Text="{Binding name}" Width="300" Height="50"/>
+                <TextBlock Text="Описание товара:   " Margin="0,0,1,0"/>
+                <TextBox Name="tbDescription" Text="{Binding description}" Width="300" Height="50"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Цена ппродукта:    " Margin="0,0,18,0"/>
-                <TextBox Name="tbPrice" Text="{Binding name}" Width="300"/>
+                <TextBlock Text="Цена товара:    " Margin="0,0,24,0"/>
+                <TextBox Name="tbPrice" Text="{Binding price}" Width="300"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Тип товара:    " Margin="0,0,32,0"/>
+                <ComboBox Name="cbType" Text="{Binding type}" Width="300"/>
+            </StackPanel>
+            <Button Name="btnAddPhoto" Content="Добавить фотографию" Click="btnAddphotoclick"/>
+
+            </StackPanel>
+            <ListView Name="lvPhotos" VerticalAlignment="Center" Height="150">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="150" Width="200">
+                            <StackPanel>
+                                <Image Height="100" Width="150" Source="{Binding photo}"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
+        <Button VerticalAlignment="Bottom" Height="30" Content="Добавить товар" Click="clickAddProduct"/>
     </Grid>
 </Window>

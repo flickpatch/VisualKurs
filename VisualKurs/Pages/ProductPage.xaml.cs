@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VisualKurs.Actions.Requests.ProductRequests;
+using VisualKurs.Windows;
 
 namespace VisualKurs.Pages
 {
@@ -34,7 +35,7 @@ namespace VisualKurs.Pages
 
         private void ClickAddProduct(object sender, RoutedEventArgs e)
         {
-            
+            new AddproductWindow().ShowDialog();
         }
     }
 }
