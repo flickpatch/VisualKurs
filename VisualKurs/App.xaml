@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:VisualKurs"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+        <BitmapImage x:Key="zaglushka" UriSource="/Resources/picture.png" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

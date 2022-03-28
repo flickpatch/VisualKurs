@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VisualKurs.Actions.ImageActivities;
+using VisualKurs.Actions.Requests.ProductRequests;
 using VisualKurs.Entities;
 
 namespace VisualKurs.Windows
@@ -32,11 +34,23 @@ namespace VisualKurs.Windows
             InitializeComponent();
             cbType.ItemsSource = typesTovar;
             DataContext =product;
-            lvPhotos.ItemsSource = product.photos;
+          
         }
 
         private void clickAddProduct(object sender, RoutedEventArgs e)
         {
+            product = DataContext as Product;
+            try
+            {
+                ProductRequest.AddProduct(product);
+                MessageBox.Show("Добавление прошло усешно.");
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Не корректно введены значчения или имеются пустые поля.");
+            }
+
 
         }
 
@@ -46,11 +60,8 @@ namespace VisualKurs.Windows
             dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png; ";
             if (dialog.ShowDialog() == true)
             {
-                product.photos.Add(new Photo()
-                {
-                    image = File.ReadAllBytes(dialog.FileName),
-                     productId = product.id                     
-                }) ;
+                product.photo = File.ReadAllBytes(dialog.FileName);
+                imgPhoto.Source = ImageManager.ImageConvert(product.photo);
                 
             }    
         }

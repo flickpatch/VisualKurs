@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VisualKurs.Actions.Info;
 using VisualKurs.Actions.Requests.ProductRequests;
 using VisualKurs.Windows;
 
@@ -25,17 +26,35 @@ namespace VisualKurs.Pages
         public ProductPage()
         {
             InitializeComponent();
-            lvProducts.ItemsSource = ProductRequest.getProducts();
+            Update();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
 
         private void ClickAddProduct(object sender, RoutedEventArgs e)
         {
             new AddproductWindow().ShowDialog();
+            Update();
+        }
+        private void Update()
+        {
+            lvProducts.ItemsSource = ProductRequest.getProducts();
+
+        }
+
+        private void btnInfoClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clickYoursProducts(object sender, RoutedEventArgs e)
+        {
+            lvProducts.ItemsSource = ProductRequest.getYourProducts(AutorizeUser.user.id);
+        }
+
+        private void clickLikedProducts(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -21,28 +21,30 @@
         <ListView Grid.Row="1" Name="lvProducts" VerticalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="150">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="120" Width="100" Source="{Binding photo}"/>
-                            <StackPanel Orientation="Vertical">
+                    <Grid Height="150" Width="750">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Height="120" Width="100" Source="{Binding photo, TargetNullValue={StaticResource zaglushka}}" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Vertical" Width="500">
                                 
-                                <TextBlock Text="{Binding name}" FontSize="18"/>
+                                <TextBlock Text="{Binding name}" FontSize="18" HorizontalAlignment="Left"/>
                                 <TextBlock Text="{Binding description}"/>
                                 <TextBlock Text="{Binding price}"/>
                             </StackPanel>
-                            <Button Name="btnInfo"/>
+                            <Button Name="btnInfo" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Right" Height="30" Width="120" Content="Подробнее" Click="btnInfoClick"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Orientation="Horizontal">
             <Button Content="Добавить объявление" Click="ClickAddProduct"/>
+            <Button Content="Ваши объявления" Click="clickYoursProducts" Margin="5,0"/>
+            <Button Content="Понравившиеся" Click="clickLikedProducts" Margin="5,0"/>
         </StackPanel>
     </Grid>
 </Page>

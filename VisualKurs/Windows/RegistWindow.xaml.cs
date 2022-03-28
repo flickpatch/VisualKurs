@@ -41,9 +41,16 @@ namespace VisualKurs.Windows
         {
             if (IsValidPass(tbFirstPass.Text, pbPass.Password.ToString()))
             {
-                UserRequests.RegistrUser(DataContext as User);
-                MessageBox.Show("Вы успешно зарегестрированны!");
-                Close();
+                try
+                {
+                    UserRequests.RegistrUser(DataContext as User);
+                    MessageBox.Show("Вы успешно зарегестрированны!");
+                    Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Не корректно введены значения.");
+                }
             }
             else
             {

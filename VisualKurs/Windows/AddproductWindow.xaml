@@ -29,22 +29,9 @@
             <Button Name="btnAddPhoto" Content="Добавить фотографию" Click="btnAddphotoclick"/>
 
             </StackPanel>
-            <ListView Name="lvPhotos" VerticalAlignment="Center" Height="150">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Height="150" Width="200">
-                            <StackPanel>
-                                <Image Height="100" Width="150" Source="{Binding photo}"/>
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+          
+            <Image Height="100" Width="150" Name="imgPhoto" Source="{Binding photo, TargetNullValue={StaticResource zaglushka}}"/>
+                          
         </StackPanel>
         <Button VerticalAlignment="Bottom" Height="30" Content="Добавить товар" Click="clickAddProduct"/>
     </Grid>
