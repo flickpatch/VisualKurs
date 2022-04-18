@@ -49,6 +49,10 @@
                 <Button Name="btnPhoto" Height="25" Width="95" Content="Выбрать фото" Margin="60,0" Click="btnPhotoClick"/>
             </StackPanel>
         </StackPanel>
-        <Button VerticalAlignment="Bottom" Content="Зарегестрироваться" Height="30" Click="btnRegClick"/>
+        <StackPanel VerticalAlignment="Bottom" Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  Content="Зарегестрироваться" Height="20" Width="120" Click="btnRegClick" Margin="10,0"/>
+            <Button  Content="Отмена" Height="20" Width="120" Click="btnBackCLick" Margin="10,0"/>
+        </StackPanel>
+       
     </Grid>
 </Window>

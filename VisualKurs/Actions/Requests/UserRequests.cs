@@ -13,7 +13,7 @@ namespace VisualKurs.Actions.Requests
 {
     public class UserRequests
     { 
-        public static void RegistrUser(User u)
+        public static HttpStatusCode RegistrUser(User u)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Users/");
             request.Method = "Post";
@@ -23,7 +23,7 @@ namespace VisualKurs.Actions.Requests
             writer.Write(json);
             writer.Close();
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-            Console.WriteLine(response.StatusCode);
+            return response.StatusCode;
         }
       
     }

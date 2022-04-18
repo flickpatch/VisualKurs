@@ -32,18 +32,23 @@ namespace VisualKurs.Pages
         private void btnRefistClick(object sender, RoutedEventArgs e)
         {
 
-            if (AutorizeUser.AutorizatingUser(pbPass.Password.ToString(), tbLogin.Text))
+            if (AutorizeUser.AutorizatingUser(pbPass.Password.ToString(), tbLogin.Text) && AutorizeUser.user != null)
             {
                 NavigationService.Navigate(new ProductPage());
             }
-            else
+            else if(AutorizeUser.AutorizatingUser(pbPass.Password.ToString(), tbLogin.Text))
             {
                 tblAuthInfo.Visibility = Visibility.Visible;
             }
-              
-            
-         
-                
+            else
+            {
+                MessageBox.Show("Подключение к сети отсутствует или сервер временно не доступен.");
+
+            }
+
+
+
+
         }
 
         private void btnAuthClick(object sender, RoutedEventArgs e)

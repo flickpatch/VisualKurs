@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,23 +40,36 @@ namespace VisualKurs.Windows
 
         private void btnRegClick(object sender, RoutedEventArgs e)
         {
-            if (IsValidPass(tbFirstPass.Text, pbPass.Password.ToString()))
+            try
             {
-                try
+                if (tbFirstPass.Text != "")
                 {
-                    UserRequests.RegistrUser(DataContext as User);
-                    MessageBox.Show("Вы успешно зарегестрированны!");
-                    Close();
+
+                    if (tbFirstPass.Text == pbPass.Password.ToString())
+                    {
+                        if (UserRequests.RegistrUser(DataContext as User) == HttpStatusCode.BadRequest)
+                            MessageBox.Show("Некорректно введены данный");
+                        else
+                        {
+                            MessageBox.Show("Complete");
+                            Close();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Пароли не совпадают");
                 }
-                catch
+                else
+                    MessageBox.Show("Введите пароль");               
+            }            
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.UnknownError)
                 {
-                    MessageBox.Show("Не корректно введены значения.");
+                    MessageBox.Show("Подключение к сети отсутствует или сервер временно не доступен.");
                 }
+                else
+                    MessageBox.Show(ex.Message.ToString());
             }
-            else
-            {
-                MessageBox.Show("Пароли не совпадают.");
-            }       
         }
 
         private void btnPhotoClick(object sender, RoutedEventArgs e)
@@ -67,6 +81,11 @@ namespace VisualKurs.Windows
                 u.photo = File.ReadAllBytes(dialog.FileName);
                 imgPhoto.Source = ImageManager.ImageConvert(u.photo);
             }
+        }
+
+        private void btnBackCLick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

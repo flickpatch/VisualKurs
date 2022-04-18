@@ -24,9 +24,15 @@ namespace VisualKurs.Actions.Info
                 user = JsonSerializer.Deserialize<AutorizedUser>(reader.ReadToEnd());
                 return true;
             }
-            catch
+            catch(WebException ex)
             {
-                return false;
+                if(ex.Status == WebExceptionStatus.UnknownError)
+                {
+                    return false;
+
+                }
+                return true;
+
             }
                 
             

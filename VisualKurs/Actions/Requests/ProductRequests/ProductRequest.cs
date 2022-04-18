@@ -23,7 +23,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(reader.ReadToEnd());
             return products;
         }
-        public static void AddProduct(Product product)
+        public static HttpStatusCode AddProduct(Product product)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/" + product + "?id=" + AutorizeUser.user.id);
             request.Method = "post";
@@ -34,7 +34,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
             writer.Write(json);
             writer.Close();
             HttpWebResponse res = request.GetResponse() as HttpWebResponse;
-            Console.WriteLine(res.StatusCode);
+            return res.StatusCode;
         }
         public static List<Product> getYourProducts(int id)
         {
