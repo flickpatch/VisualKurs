@@ -15,7 +15,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
     {
         public static List<Product> getProducts()
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/id="+AutorizeUser.user.id);
             request.Method = "get";
             request.ContentType = "application/json";
             request.Headers.Add("Authorization", "Bearer " + AutorizeUser.user.access_token);

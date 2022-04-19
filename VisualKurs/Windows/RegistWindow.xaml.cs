@@ -75,7 +75,7 @@ namespace VisualKurs.Windows
         private void btnPhotoClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;";
+            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.jfif";
             if (dialog.ShowDialog() == true)
             {
                 u.photo = File.ReadAllBytes(dialog.FileName);

@@ -57,7 +57,7 @@ namespace VisualKurs.Windows
         private void btnAddphotoclick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png; ";
+            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.jfif";
             if (dialog.ShowDialog() == true)
             {
                 product.photo = File.ReadAllBytes(dialog.FileName);

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VisualKurs.Actions.Info;
 using VisualKurs.Actions.Requests.ProductRequests;
+using VisualKurs.Entities;
 using VisualKurs.Windows;
 
 namespace VisualKurs.Pages
@@ -23,6 +24,7 @@ namespace VisualKurs.Pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        List<Product> products = new List<Product>();
         public ProductPage()
         {
             InitializeComponent();
@@ -38,7 +40,8 @@ namespace VisualKurs.Pages
         }
         private void Update()
         {
-            lvProducts.ItemsSource = ProductRequest.getProducts();
+            products = ProductRequest.getProducts();
+            lvProducts.ItemsSource = products;
 
         }
 
@@ -49,7 +52,8 @@ namespace VisualKurs.Pages
 
         private void clickYoursProducts(object sender, RoutedEventArgs e)
         {
-            lvProducts.ItemsSource = ProductRequest.getYourProducts(AutorizeUser.user.id);
+            products = ProductRequest.getYourProducts(AutorizeUser.user.id);
+            lvProducts.ItemsSource = products;
         }
 
         private void clickLikedProducts(object sender, RoutedEventArgs e)
