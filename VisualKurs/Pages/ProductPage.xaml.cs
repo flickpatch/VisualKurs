@@ -24,10 +24,11 @@ namespace VisualKurs.Pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        private bool isyourproduct=false;
         List<Product> products = new List<Product>();
         public ProductPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             Update();
         }
 
@@ -40,6 +41,7 @@ namespace VisualKurs.Pages
         }
         private void Update()
         {
+
             products = ProductRequest.getProducts();
             lvProducts.ItemsSource = products;
 
@@ -52,8 +54,30 @@ namespace VisualKurs.Pages
 
         private void clickYoursProducts(object sender, RoutedEventArgs e)
         {
-            products = ProductRequest.getYourProducts(AutorizeUser.user.id);
-            lvProducts.ItemsSource = products;
+           
+
+            if (isyourproduct)
+            {
+                Update();              
+            }
+            else
+            {
+                products = ProductRequest.getYourProducts(AutorizeUser.user.id);
+                lvProducts.ItemsSource = products;
+            }
+            if (isyourproduct)
+            {
+                Color c = new Color();
+                isyourproduct = false; ;
+                c.R = 221; c.G = 221; c.B = 221;
+                btnYourProduct.Background = new SolidColorBrush(c);
+            }
+            else
+            {
+                
+                isyourproduct = true;
+                btnYourProduct.Background = Brushes.GreenYellow;
+            }
         }
 
         private void clickLikedProducts(object sender, RoutedEventArgs e)

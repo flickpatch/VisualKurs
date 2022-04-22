@@ -43,7 +43,7 @@
         </ListView>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Orientation="Horizontal">
             <Button Content="Добавить объявление" Click="ClickAddProduct"/>
-            <Button Content="Ваши объявления" Click="clickYoursProducts" Margin="5,0"/>
+            <Button Content="Ваши объявления" Click="clickYoursProducts" Name="btnYourProduct" Margin="5,0"/>
             <Button Content="Понравившиеся" Click="clickLikedProducts" Margin="5,0"/>
         </StackPanel>
     </Grid>
