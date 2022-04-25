@@ -84,5 +84,15 @@ namespace VisualKurs.Pages
         {
 
         }
+
+        private void SearchChange(object sender, TextChangedEventArgs e)
+        {
+            if (tbSearch.Text != "")
+            {
+                products = ProductRequest.GetProductsBySearxh(tbSearch.Text);
+            }
+            else
+                Update();
+        }
     }
 }

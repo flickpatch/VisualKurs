@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <TextBlock Text="Поиск"/>
-            <TextBox Name="tbSearch" Width="300"/>
+            <TextBox Name="tbSearch" Width="300" TextChanged="SearchChange"/>
         </StackPanel>
         <ListView Grid.Row="1" Name="lvProducts" VerticalAlignment="Center">
             <ListView.ItemsPanel>

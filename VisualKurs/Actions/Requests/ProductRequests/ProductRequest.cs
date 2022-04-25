@@ -12,10 +12,20 @@ using VisualKurs.Entities;
 namespace VisualKurs.Actions.Requests.ProductRequests
 {
     public class ProductRequest
-    {
+    {   
+        public static List<Product> GetProductsBySearxh(string search)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/search/" + search + "/" + AutorizeUser.user.id);
+            req.Method = "get";
+            req.ContentType = "application/json";
+            req.Headers.Add("Authorization", "Bearer " + AutorizeUser.user.access_token);
+            StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream());
+            List<Product> products = JsonSerializer.Deserialize<List<Product>>(reader.ReadToEnd());
+            return products;
+        }
         public static List<Product> getProducts()
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/id="+AutorizeUser.user.id);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/id/"+AutorizeUser.user.id);
             request.Method = "get";
             request.ContentType = "application/json";
             request.Headers.Add("Authorization", "Bearer " + AutorizeUser.user.access_token);
