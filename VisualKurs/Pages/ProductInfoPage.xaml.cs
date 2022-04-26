@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VisualKurs.Entities;
 
 namespace VisualKurs.Pages
 {
@@ -20,9 +21,10 @@ namespace VisualKurs.Pages
     /// </summary>
     public partial class ProductInfoPage : Page
     {
-        public ProductInfoPage()
+        public ProductInfoPage(Product p)
         {
             InitializeComponent();
+            DataContext = p;
         }
 
         private void btnbackclick(object sender, RoutedEventArgs e)
@@ -31,6 +33,11 @@ namespace VisualKurs.Pages
         }
 
         private void LikeProduct(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnContectWithUserClick(object sender, RoutedEventArgs e)
         {
 
         }

@@ -31,5 +31,12 @@ namespace VisualKurs.Entities
         {
             products = new List<Product>();
         }
+        public string FIO
+        {
+            get
+            {
+                return name + " " + secName;
+            }
+        }
     }
 }

@@ -6,6 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
         <BitmapImage x:Key="zaglushka" UriSource="/Resources/picture.png" />
+            <BitmapImage x:Key="zaglushkaUser" UriSource="/Resources/USERICON.png" />
+"
         </ResourceDictionary>
     </Application.Resources>
 </Application>

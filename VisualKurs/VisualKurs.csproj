@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\picture.png" />
+    <None Remove="Resources\USERICON.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\picture.png" />
+    <Resource Include="Resources\USERICON.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,7 +15,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
     {   
         public static List<Product> GetProductsBySearxh(string search)
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/search/" + search + "/" + AutorizeUser.user.id);
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/search/"+search);
             req.Method = "get";
             req.ContentType = "application/json";
             req.Headers.Add("Authorization", "Bearer " + AutorizeUser.user.access_token);

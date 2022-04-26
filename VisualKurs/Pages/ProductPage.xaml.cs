@@ -25,18 +25,22 @@ namespace VisualKurs.Pages
     public partial class ProductPage : Page
     {
         private bool isyourproduct=false;
-        List<Product> products = new List<Product>();
+        List<Product> products = new List<Product>(); Color c = new Color();
+
         public ProductPage()
         {
             InitializeComponent(); 
             Update();
+            c.R = 221; c.G = 221; c.B = 221;
+            btnYourProduct.Background = new SolidColorBrush(c);
         }
 
     
 
         private void ClickAddProduct(object sender, RoutedEventArgs e)
         {
-            new AddproductWindow().ShowDialog();
+            new AddproductWindow().ShowDialog(); Color c = new Color(); c.R = 221; c.G = 221; c.B = 221;
+            btnYourProduct.Background = new SolidColorBrush(c);
             Update();
         }
         private void Update()
@@ -49,6 +53,7 @@ namespace VisualKurs.Pages
 
         private void btnInfoClick(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new ProductInfoPage(lvProducts.SelectedItem as Product));
 
         }
 
@@ -89,7 +94,12 @@ namespace VisualKurs.Pages
         {
             if (tbSearch.Text != "")
             {
-                products = ProductRequest.GetProductsBySearxh(tbSearch.Text);
+                products = ProductRequest.GetProductsBySearxh(tbSearch.Text.ToString()); lvProducts.ItemsSource = products;
+                if (products == null)
+                {
+                    MessageBox.Show("По вашему запросу ничего не найдено!");
+                }
+             
             }
             else
                 Update();

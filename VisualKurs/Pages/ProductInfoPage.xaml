@@ -14,13 +14,17 @@
             <RowDefinition Height="4*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding photo}" Height="150" Width="250"  />
+        <Image Source="{Binding photo, TargetNullValue={StaticResource zaglushka}}" Height="150" Width="250"  />
         <StackPanel Grid.Row="1">
-            <TextBlock Text="{Binding name}"/>
-            <TextBlock Text="{Binding description}" Height="50"/>
+            <TextBlock Text="{Binding name}" HorizontalAlignment="Center" FontSize="18"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание:    " Height="50"/>
+                <TextBlock Text="{Binding description}" Height="50"/>
+
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Orientation="Horizontal">
-            <Button Height="25" Width="150" Content="Связь с пользователем"/>
+            <Button Height="25" Width="150" Content="Связь с пользователем" Click="btnContectWithUserClick"/>
             <Button Height="25" Width="150" Content="Понравилось" Margin="10,0" Click="LikeProduct"/>
             <Button Height="25" Width="150" Content="Вернуться" Click="btnbackclick"/>
         </StackPanel>
