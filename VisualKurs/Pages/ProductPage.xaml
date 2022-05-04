@@ -36,17 +36,17 @@
                                 <TextBlock Text="{Binding price}"/>
                             </StackPanel>
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock Text="{Binding Your}" Foreground="Orange"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
-                            <Button Name="btnInfo" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Right" Height="30" Width="120" Content="Подробнее" Click="btnInfoClick"/>
+                                <TextBlock Text="{Binding Your}" Foreground="Orange"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>                            
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Orientation="Horizontal">       
             <Button Content="Добавить объявление" Click="ClickAddProduct"/>
-            <Button Content="Ваши объявления" Click="clickYoursProducts" Name="btnYourProduct" Margin="5,0"/>
+            <Button Content="Информация " Click="btnInfoClick"  Name="btnInfo" Margin="5,0"/>
+            <Button Content="Ваши объявления" Click="clickYoursProducts"  Name="btnYourProduct" Margin="5,0"/>
             <Button Content="Понравившиеся" Click="clickLikedProducts" Margin="5,0"/>
         </StackPanel>
     </Grid>

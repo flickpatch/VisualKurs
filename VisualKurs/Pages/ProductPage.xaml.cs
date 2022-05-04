@@ -45,15 +45,26 @@ namespace VisualKurs.Pages
         }
         private void Update()
         {
-
-            products = ProductRequest.getProducts();
-            lvProducts.ItemsSource = products;
-
+            if (isyourproduct)
+            {
+                products = ProductRequest.getYourProducts(AutorizeUser.user.id);
+                lvProducts.ItemsSource = products;
+            }
+            else
+            {
+                products = ProductRequest.getProducts();
+                lvProducts.ItemsSource = products;
+            }
         }
 
         private void btnInfoClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProductInfoPage(lvProducts.SelectedItem as Product));
+            Product p = lvProducts.SelectedItem as Product;
+            if (p != null)
+                NavigationService.Navigate(new ProductInfoPage(lvProducts.SelectedItem as Product));
+            else
+                MessageBox.Show("Выберите объявление!");
+
 
         }
 
@@ -104,5 +115,7 @@ namespace VisualKurs.Pages
             else
                 Update();
         }
+
+       
     }
 }

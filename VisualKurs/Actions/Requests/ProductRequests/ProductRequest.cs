@@ -56,5 +56,9 @@ namespace VisualKurs.Actions.Requests.ProductRequests
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(reader.ReadToEnd());
             return products;
         }
+        public static void LikeProduct(int productid)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create()
+        }
     }
 }
