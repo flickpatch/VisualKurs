@@ -35,7 +35,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Orientation="Horizontal">
             <Button Height="25" Width="150" Content="Связь с пользователем" Click="btnContectWithUserClick"/>
-            <Button Height="25" Width="150" Content="Понравилось" Margin="10,0" Click="LikeProduct"/>
+            <Button Height="25" Width="150" Content="Понравилось" Margin="10,0" Click="LikeProduct" Name="btnLike"/>
             <Button Height="25" Width="150" Content="Вернуться" Click="btnbackclick"/>
         </StackPanel>
     </Grid>

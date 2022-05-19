@@ -25,11 +25,19 @@ namespace VisualKurs.Windows
     /// </summary>
     public partial class RegistWindow : Window
     {
-        User u = new User();
-        public RegistWindow()
+        User u;
+        public RegistWindow(User user)
         {
             InitializeComponent();
+            u = user;
             DataContext = u;
+            if(user.id != 0)
+            {
+                TbTitle.Text = "Изменение информации";
+                btnReg.Content = "Изменить";
+                     
+            }
+           
         }
         private static bool IsValidPass(string Fpass, string sPass)
         {
@@ -47,12 +55,25 @@ namespace VisualKurs.Windows
 
                     if (tbFirstPass.Text == pbPass.Password.ToString())
                     {
-                        if (UserRequests.RegistrUser(DataContext as User) == HttpStatusCode.BadRequest)
-                            MessageBox.Show("Некорректно введены данный");
+                        if (u.id == 0)
+                        {
+                            if (UserRequests.RegistrUser(DataContext as User) == HttpStatusCode.BadRequest)
+                                MessageBox.Show("Некорректно введены данный");
+                            else
+                            {
+                                MessageBox.Show("Complete");
+                                Close();
+                            }
+                        }
                         else
                         {
-                            MessageBox.Show("Complete");
-                            Close();
+                            if (UserRequests.ChangeUser(DataContext as User) == HttpStatusCode.BadRequest)
+                                MessageBox.Show("Некорректно введены данный");
+                            else
+                            {
+                                MessageBox.Show("Complete");
+                                Close();
+                            }
                         }
                     }
                     else

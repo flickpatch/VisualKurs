@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VisualKurs.Actions.ImageActivities;
+using VisualKurs.Actions.Info;
 using VisualKurs.Actions.Requests.ProductRequests;
 using VisualKurs.Entities;
 
@@ -24,12 +25,16 @@ namespace VisualKurs.Windows
     /// </summary>
     public partial class AddproductWindow : Window 
     {
-        Product product = new Product();
+        Product product = new Product()
+        {
+           
+        }
+        ;
         public AddproductWindow()
         {
             var typesTovar = new List<string>
             {
-                "Авто", "Услуги", "Игрушки", "Свое", "Прикольная тема", "Кончилась фантазия", "Гена", "Вася", "Вася+Гена", "АХАахафаахХах", "Не могу", "ЫЫЫЫ", "выфв", "Васпомнил", "Запчасти", "Питание", "Одежда",
+                "Авто", "Услуги", "Игрушки", "Свое", "Прикольная тема",  "Запчасти", "Питание", "Одежда",
             };
             InitializeComponent();
             cbType.ItemsSource = typesTovar;

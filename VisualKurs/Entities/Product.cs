@@ -19,12 +19,11 @@ namespace VisualKurs.Entities
         public int userId { get; set; }
         public string type { get; set; }
         public int price { get; set; }
-        public virtual User user { get; set; }
         public bool IsUser
         {
             get
             {
-                if (user.id == AutorizeUser.user.id)
+                if (userId == AutorizeUser.user.id)
                   return true;                
                 return false;
             }

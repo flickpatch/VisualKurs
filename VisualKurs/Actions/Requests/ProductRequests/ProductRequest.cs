@@ -35,7 +35,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
         }
         public static HttpStatusCode AddProduct(Product product)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/" + product + "?id=" + AutorizeUser.user.id);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/" + product + "/" + AutorizeUser.user.id);
             request.Method = "post";
             request.ContentType = "application/json";
             request.Headers.Add("Authorization", "Bearer " + AutorizeUser.user.access_token);
@@ -58,7 +58,7 @@ namespace VisualKurs.Actions.Requests.ProductRequests
         }
         public static void LikeProduct(int productid)
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create()
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://localhost:44327/Product/");
         }
     }
 }

@@ -5,8 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-        <BitmapImage x:Key="zaglushka" UriSource="/Resources/picture.png" />
-            <BitmapImage x:Key="zaglushkaUser" UriSource="/Resources/USERICON.png" />
+            <BitmapImage x:Key="zaglushka" UriSource="/Resources/picture.png" />
+            <BitmapImage x:Key="UserPhotoZ" UriSource="/Resources/USERICON.png" />
+            <Image x:Key="zaglushkaUser" Source="/Resources/USERICON.png" />
 
         </ResourceDictionary>
     </Application.Resources>

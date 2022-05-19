@@ -14,6 +14,7 @@
             <RowDefinition Height="8*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button Name="btnProfile" Click="btnProdileClick" Content="{StaticResource zaglushkaUser}" Width="75" Height="80" HorizontalAlignment="Right" Margin="15"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <TextBlock Text="Поиск"/>
             <TextBox Name="tbSearch" Width="300" TextChanged="SearchChange"/>
@@ -47,7 +48,7 @@
             <Button Content="Добавить объявление" Click="ClickAddProduct"/>
             <Button Content="Информация " Click="btnInfoClick"  Name="btnInfo" Margin="5,0"/>
             <Button Content="Ваши объявления" Click="clickYoursProducts"  Name="btnYourProduct" Margin="5,0"/>
-            <Button Content="Понравившиеся" Click="clickLikedProducts" Margin="5,0"/>
+            <Button Name="btnLikedProduct" Content="Понравившиеся" Click="clickLikedProducts" Margin="5,0"/>
         </StackPanel>
     </Grid>
 </Page>

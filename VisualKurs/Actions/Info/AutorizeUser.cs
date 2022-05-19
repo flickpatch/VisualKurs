@@ -12,7 +12,16 @@ namespace VisualKurs.Actions.Info
 {
     public class AutorizeUser
     {
-        public static AutorizedUser user { get; set; }
+        /// <summary>
+        /// Авторизированный пользователь
+        /// </summary>
+        public static AutorizedUser user { get; set; } 
+        /// <summary>
+        /// Метод авторизации
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <param name="login"></param>
+        /// <returns></returns>
         public static bool AutorizatingUser(string pass, string login)
         {
             try

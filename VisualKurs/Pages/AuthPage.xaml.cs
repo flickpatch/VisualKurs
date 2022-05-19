@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VisualKurs.Actions.Info;
 using VisualKurs.Actions.Requests;
+using VisualKurs.Entities;
 using VisualKurs.Windows;
 
 namespace VisualKurs.Pages
@@ -53,7 +54,7 @@ namespace VisualKurs.Pages
 
         private void btnAuthClick(object sender, RoutedEventArgs e)
         {
-            new RegistWindow().ShowDialog();
+            new RegistWindow(new User() { birthDate = new DateTime(2000, 07, 16)}).ShowDialog();
         }
     }
 }

@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
         
-        <Image Source="{Binding photo, TargetNullValue={StaticResource zaglushkaUser}}" Height="150" Width="120"/>
-        <StackPanel Grid.Row="1" Margin="30">
-            <StackPanel Orientation="Vertical" Margin="30,0,0,0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Email:   "/>
-                    <TextBlock Text="{Binding email}"/>
+            <Image Source="{Binding photo, TargetNullValue={StaticResource zaglushkaUser}}" Height="150" Width="120"/>
+            <StackPanel Grid.Row="1" Margin="30">
+                <StackPanel Orientation="Vertical" Margin="30,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Email:   "/>
+                        <TextBlock Text="{Binding email}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="30,0,0,0">
+                    <TextBlock Text="Телефон:"/>
+                    <TextBlock Text="{Binding }"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="30,0,0,0">
-                <TextBlock Text="Телефон:"/>
-                <TextBlock Text="{Binding }"/>
-            </StackPanel>
-        </StackPanel>
         <Button Name="btnBack" Content="Готово" Grid.Row="3" Height="30" Width="150" Click="btnBackClick"/>
     </Grid>
 </Window>

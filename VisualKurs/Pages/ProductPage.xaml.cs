@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VisualKurs.Actions.Info;
+using VisualKurs.Actions.Requests;
 using VisualKurs.Actions.Requests.ProductRequests;
 using VisualKurs.Entities;
 using VisualKurs.Windows;
@@ -24,8 +25,10 @@ namespace VisualKurs.Pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        private bool islikedproduct = false;
         private bool isyourproduct=false;
-        List<Product> products = new List<Product>(); Color c = new Color();
+        List<Product> products = new List<Product>(); 
+        Color c = new Color();
 
         public ProductPage()
         {
@@ -39,22 +42,19 @@ namespace VisualKurs.Pages
 
         private void ClickAddProduct(object sender, RoutedEventArgs e)
         {
-            new AddproductWindow().ShowDialog(); Color c = new Color(); c.R = 221; c.G = 221; c.B = 221;
+            new AddproductWindow().ShowDialog();
+            
+            c.R = 221; c.G = 221; c.B = 221;
             btnYourProduct.Background = new SolidColorBrush(c);
             Update();
         }
         private void Update()
         {
-            if (isyourproduct)
-            {
-                products = ProductRequest.getYourProducts(AutorizeUser.user.id);
-                lvProducts.ItemsSource = products;
-            }
-            else
-            {
+           
+            
                 products = ProductRequest.getProducts();
                 lvProducts.ItemsSource = products;
-            }
+            
         }
 
         private void btnInfoClick(object sender, RoutedEventArgs e)
@@ -70,11 +70,11 @@ namespace VisualKurs.Pages
 
         private void clickYoursProducts(object sender, RoutedEventArgs e)
         {
-           
 
+            
             if (isyourproduct)
             {
-                Update();              
+                Update();
             }
             else
             {
@@ -98,7 +98,28 @@ namespace VisualKurs.Pages
 
         private void clickLikedProducts(object sender, RoutedEventArgs e)
         {
+            if (islikedproduct)
+            {
+                Update();
+            }
+            else
+            {
+                products = UserRequests.GetLikedProducts();
+                lvProducts.ItemsSource = products;
+            }
+            if (islikedproduct)
+            {
+                Color c = new Color();
+                islikedproduct = false; ;
+                c.R = 221; c.G = 221; c.B = 221;
+                btnLikedProduct.Background = new SolidColorBrush(c);
+            }
+            else
+            {
 
+                islikedproduct = true;
+                btnLikedProduct.Background = Brushes.GreenYellow;
+            }
         }
 
         private void SearchChange(object sender, TextChangedEventArgs e)
@@ -116,6 +137,10 @@ namespace VisualKurs.Pages
                 Update();
         }
 
-       
+        private void btnProdileClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserPageInfo(AutorizeUser.user.id));
+
+        }
     }
 }
